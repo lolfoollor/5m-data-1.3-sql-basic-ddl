@@ -15,6 +15,7 @@ Write the SQL statement to create a unique index on the `email` column of the `s
 Answer:
 
 ```sql
+CREATE UNIQUE INDEX students_email_idx ON lesson.students(email);
 
 ```
 
@@ -25,7 +26,13 @@ Write the SQL statement to alter the `teachers` table in the `lesson` schema to 
 Answer:
 
 ```sql
+BEGIN TRANSACTION; -- or BEGIN
 
+ALTER TABLE lesson.teachers 
+ADD COLUMN subject VARCHAR;
+
+COMMIT; -- either or
+ROLLBACK;
 ```
 
 ### Question 3
@@ -35,6 +42,16 @@ Write the SQL statement to update the `email` of the teacher with the name 'John
 Answer:
 
 ```sql
+BEGIN TRANSACTION; -- or BEGIN
+
+UPDATE lesson.teachers
+SET email = 'john.doe@example.com'
+WHERE name = 'John Doe';
+
+COMMIT; -- either or
+ROLLBACK;
+
+-- You may use SELECT * FROM lesson.teachers WHERE name = 'John Doe'; to check before updating. 
 
 ```
 

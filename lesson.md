@@ -60,6 +60,8 @@ Open DBeaver and create a new connection to the DuckDB database file `db/unit-1-
 
 We start by creating a new schema `lesson` to organise our tables.
 
+**Note: In DuckDb, you cannot alter the table to have foreign key later. Potentially, you can't have FK added in other schema other than main too.**
+
 ```sql
 CREATE SCHEMA lesson;
 ```
